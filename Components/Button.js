@@ -2,8 +2,8 @@ import { Pressable, Text } from "react-native";
 
 function Button(props) {
   return (
-    <Pressable onPress={() => props.navigation.replace("Home")}>
-      <Text>{props.title}</Text>
+    <Pressable onPress={props.onPress}>
+      <Text>{props.loading ? "Please wait..." : props.title}</Text>
     </Pressable>
   );
 }

@@ -15,12 +15,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const jwt = require("jsonwebtoken");
-
 // Database connection
 connectDB();
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
 // Routes
 app.use("/api/v1/auth", require("./Routes/UserRoutes"));
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`.yellow);
+});

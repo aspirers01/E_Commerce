@@ -13,10 +13,12 @@ function Logowithinput(props) {
         value={props.value}
         autoCorrect={false}
         autoComplete="off"
-        keyboardType={props.title === "Email" ? "email-address" : "default"}
+        keyboardType={props.title === "Username" ? "email-address" : "default"}
         autoCapitalize="none"
         secureTextEntry={
-          props.placeholder === "Password" || "Confirm Password" ? true : false
+          props.placeholder === ("Password" || "Confirm Password")
+            ? true
+            : false
         }
         onChangeText={(text) => props.setValue(text)}
       />

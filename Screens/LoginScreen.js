@@ -11,10 +11,45 @@ import {
 import Logowithinput from "../Components/Logowithinput";
 import { useState } from "react";
 import Button from "../Components/Button";
+import axios from "axios";
+import asyncstorage from "@react-native-async-storage/async-storage";
 
 function LoginScreen(props) {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function loginHandler() {
+    try {
+      setLoading(true);
+      if (!Email || !Password) {
+        alert("Please fill all the fields");
+        setLoading(false);
+        return;
+      }
+      const baseURL =
+        Platform.OS === "android"
+          ? "http://10.0.2.2:8080/api/v1/auth/login"
+          : "http://localhost:8080/api/v1/auth/login";
+      const { data } = await axios.post(baseURL, {
+        email: Email,
+        password: Password,
+      });
+      await asyncstorage.setItem("@authToken", data.token);
+      setLoading(false);
+      if (data) {
+        alert("Login Successful");
+        props.navigation.replace("Home");
+      }
+      console.log(data);
+
+      return;
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      alert("Invalid Credentials");
+    }
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ marginTop: 10 }}>
@@ -55,7 +90,7 @@ function LoginScreen(props) {
             <Text style={{ color: "#007fff" }}>Forget Password</Text>
           </View>
           <View style={styles.loginButton}>
-            <Button title="Login" navigation={props.navigation} />
+            <Button title="Login" onPress={loginHandler} loading={loading} />
           </View>
           <View>
             <Text style={styles.logintext}>
