@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 function Home() {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Home</Text>
     </View>
   );
