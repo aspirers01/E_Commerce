@@ -11,6 +11,9 @@ import SearchBar from "../Components/SearchBar";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import ListItems from "../Components/ListItems";
+import SliderImage from "../Components/SliderImage";
+
 function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
@@ -36,6 +39,10 @@ function HomeScreen() {
             <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
           </Pressable>
         </View>
+        <ScrollView showsHorizontalScrollIndicator={false}>
+          <ListItems />
+        </ScrollView>
+        <SliderImage />
       </ScrollView>
     </SafeAreaView>
   );
