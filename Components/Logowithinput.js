@@ -12,9 +12,9 @@ function Logowithinput(props) {
         placeholder={props.placeholder}
         value={props.value}
         autoCorrect={false}
+        autoCapitalize="none"
         autoComplete="off"
         keyboardType={props.title === "Username" ? "email-address" : "default"}
-        autoCapitalize="none"
         secureTextEntry={
           props.placeholder === ("Password" || "Confirm Password")
             ? true

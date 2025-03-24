@@ -9,12 +9,25 @@ import {
   Platform,
 } from "react-native";
 import Logowithinput from "../Components/Logowithinput";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import Button from "../Components/Button";
 import axios from "axios";
 import asyncstorage from "@react-native-async-storage/async-storage";
 
 function LoginScreen(props) {
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        const token = await asyncstorage.getItem("@authToken");
+        if (token) {
+          props.navigation.replace("MainScreen");
+        }
+      } catch (error) {
+        console.log("error message", error);
+      }
+    }
+    checkAuth();
+  }, []);
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,9 +52,8 @@ function LoginScreen(props) {
       setLoading(false);
       if (data) {
         alert("Login Successful");
-        props.navigation.replace("Home");
+        props.navigation.replace("MainScreen");
       }
-      console.log(data);
 
       return;
     } catch (error) {

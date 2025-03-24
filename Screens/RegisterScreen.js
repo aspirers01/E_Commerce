@@ -21,6 +21,12 @@ const RegisterScreen = (props) => {
   const [loading, setLoading] = useState(false);
 
   async function registerHandler() {
+    // console.log all data email passwrod name and confirm password
+    console.log("Email:", Email);
+    console.log("Password:", Password);
+    console.log("Name:", Name);
+    console.log("Confirm Password:", ConfirmPassword);
+
     try {
       setLoading(true);
       if (!Email || !Password || !Name || !ConfirmPassword) {
