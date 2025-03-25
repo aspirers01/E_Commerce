@@ -4,21 +4,19 @@ const images = [
   "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Books/BB/JULY/1242x550_Header-BB-Jul23.jpg",
 ];
 import { View, Image, StyleSheet, Dimensions } from "react-native";
-import { SliderBox } from "react-native-image-slider-box";
+
 function SliderImage() {
   return (
     <View style={styles.container}>
-      <SliderBox
-        images={images}
-        autoplay
-        circleLoop
-        dotColor={"#13274f"}
-        inactiveDotColor="#90a4ae"
-        ImageComponentStyle={{
-          width: "100%",
-          height: Dimensions.get("window").height / 3,
-        }}
-      />
+      <SwipeableViews>
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            source={{ uri: image }}
+            style={{ width: Dimensions.get("window").width, height: 300 }}
+          />
+        ))}
+      </SwipeableViews>
     </View>
   );
 }

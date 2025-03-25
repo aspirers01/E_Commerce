@@ -13,6 +13,7 @@ import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import ListItems from "../Components/ListItems";
 import SliderImage from "../Components/SliderImage";
+import Deals from "../Components/Deals";
 
 function HomeScreen() {
   return (
@@ -42,7 +43,17 @@ function HomeScreen() {
         <ScrollView showsHorizontalScrollIndicator={false}>
           <ListItems />
         </ScrollView>
-        <SliderImage />
+        {/* <SliderImage />  will set it later 
+        right now its not working use any other 
+        components  */}
+        <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold" }}>
+          Trending Deals of this week
+        </Text>
+        <Deals />
+        <Text style={{ height: 1, borderWidth: 2, borderColor: "#D0d0d0" }} />
+        <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold" }}>
+          Today's Deals
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
