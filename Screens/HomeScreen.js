@@ -14,6 +14,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import ListItems from "../Components/ListItems";
 import SliderImage from "../Components/SliderImage";
 import Deals from "../Components/Deals";
+import Offers from "../Components/Offers";
 
 function HomeScreen() {
   return (
@@ -54,6 +55,8 @@ function HomeScreen() {
         <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold" }}>
           Today's Deals
         </Text>
+        <Offers />
+        <Text style={{ height: 1, borderWidth: 2, borderColor: "#D0d0d0" }} />
       </ScrollView>
     </SafeAreaView>
   );

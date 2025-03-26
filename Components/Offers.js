@@ -1,10 +1,10 @@
-import { View } from "react-native";
+import { Pressable, ScrollView, View, Image, Text } from "react-native";
 const offers = [
   {
     id: "0",
     title:
       "Oppo Enco Air3 Pro True Wireless in Ear Earbuds with Industry First Composite Bamboo Fiber, 49dB ANC, 30H Playtime, 47ms Ultra Low Latency,Fast Charge,BT 5.3 (Green)",
-    offer: "72% off",
+    offer: "72% ",
     oldPrice: 7500,
     price: 4500,
     image:
@@ -62,3 +62,50 @@ const offers = [
     size: "8GB RAM, 128GB Storage",
   },
 ];
+
+function Offers() {
+  return (
+    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+      <View style={{ padding: 10, flexDirection: "row", flexWrap: "wrap" }}>
+        {offers.map((item, index) => (
+          <Pressable
+            key={index}
+            style={{
+              margin: 10,
+              padding: 10,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              source={{ uri: item?.image }}
+              style={{
+                width: 150,
+                height: 150,
+                resizeMode: "contain",
+              }}
+            />
+
+            <View
+              style={{
+                padding: 10,
+                backgroundColor: "#E31837",
+                borderRadius: 8,
+                marginTop: 10,
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontSize: 16, fontWeight: 500, color: "white" }}>
+                Upto {item?.offer} off
+              </Text>
+            </View>
+          </Pressable>
+        ))}
+      </View>
+    </ScrollView>
+  );
+}
+
+export default Offers;
