@@ -12,9 +12,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import ListItems from "../Components/ListItems";
-import SliderImage from "../Components/SliderImage";
-import Deals from "../Components/Deals";
-import Offers from "../Components/Offers";
+import SliderImage from "../Components/Home/SliderImage";
+import Deals from "../Components/Home/Deals";
+import Offers from "../Components/Home/Offers";
 
 function HomeScreen() {
   return (
