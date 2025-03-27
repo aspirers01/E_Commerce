@@ -8,7 +8,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import axios from "axios";
+
 import DropDownPicker from "react-native-dropdown-picker";
+import { useNavigation } from "@react-navigation/native";
 function Products() {
   const [item, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
@@ -105,6 +107,7 @@ function Products() {
                 >
                   Price: {item.price}$
                 </Text>
+                console.log
                 <Text
                   style={{
                     fontWeight: "bold",

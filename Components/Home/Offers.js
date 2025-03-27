@@ -63,7 +63,7 @@ const offers = [
   },
 ];
 
-function Offers() {
+function Offers(props) {
   return (
     <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
       <View style={{ padding: 10, flexDirection: "row", flexWrap: "wrap" }}>
@@ -75,6 +75,12 @@ function Offers() {
               padding: 10,
               justifyContent: "center",
               alignItems: "center",
+            }}
+            onPress={() => {
+              props.navigation.navigate("ProductInfo", {
+                item: item,
+                title: "heelos",
+              });
             }}
           >
             <Image

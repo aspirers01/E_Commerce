@@ -17,7 +17,7 @@ import Deals from "../Components/Home/Deals";
 import Offers from "../Components/Home/Offers";
 import Products from "../Components/Home/Products";
 
-function HomeScreen() {
+function HomeScreen(props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -56,7 +56,7 @@ function HomeScreen() {
         <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold" }}>
           Today's Deals
         </Text>
-        <Offers />
+        <Offers navigation={props.navigation} />
         <Text style={{ height: 1, borderWidth: 2, borderColor: "#D0d0d0" }} />
 
         <Products />
