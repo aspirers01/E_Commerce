@@ -15,6 +15,7 @@ import ListItems from "../Components/ListItems";
 import SliderImage from "../Components/Home/SliderImage";
 import Deals from "../Components/Home/Deals";
 import Offers from "../Components/Home/Offers";
+import Products from "../Components/Home/Products";
 
 function HomeScreen() {
   return (
@@ -57,6 +58,8 @@ function HomeScreen() {
         </Text>
         <Offers />
         <Text style={{ height: 1, borderWidth: 2, borderColor: "#D0d0d0" }} />
+
+        <Products />
       </ScrollView>
     </SafeAreaView>
   );

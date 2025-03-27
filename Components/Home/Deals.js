@@ -69,8 +69,8 @@ const deals = [
 function Deals() {
   return (
     <View style={styles.container}>
-      {deals.map((item) => (
-        <Pressable>
+      {deals.map((item, id) => (
+        <Pressable key={id}>
           <Image
             source={{ uri: item.image }}
             style={{ width: 180, height: 180, resizeMode: "contain" }}
