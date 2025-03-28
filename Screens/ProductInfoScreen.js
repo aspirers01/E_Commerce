@@ -75,13 +75,27 @@ function ProductInfoScreen(prams) {
         </Text>
       </View>
       <Text style={{ borderWidth: 1, height: 1, color: "d0d0d0" }} />
-      <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
+      <View
+        style={{
+          padding: 10,
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 5,
+        }}
+      >
         <Text> Color:</Text>
         <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.color}</Text>
       </View>
-      <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
-        <Text> Color:</Text>
-        <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.color}</Text>
+      <View
+        style={{
+          padding: 10,
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 5,
+        }}
+      >
+        <Text> Size:</Text>
+        <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.size}</Text>
       </View>
     </ScrollView>
   );
