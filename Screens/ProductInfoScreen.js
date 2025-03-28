@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   Dimensions,
+  Pressable,
 } from "react-native";
 import SearchBar from "../Components/SearchBar";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -97,6 +98,26 @@ function ProductInfoScreen(prams) {
         <Text> Size:</Text>
         <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.size}</Text>
       </View>
+      <Text style={{ borderWidth: 1, height: 1, color: "d0d0d0" }} />
+      <Text
+        style={{
+          color: "green",
+          marginHorizontal: 10,
+          fontWeight: "500",
+
+          padding: 10,
+        }}
+      >
+        In Stock
+      </Text>
+      <Pressable style={styles.button}>
+        <Text style={{ textAlign: "center", fontWeight: "500" }}>
+          Add to Cart
+        </Text>
+      </Pressable>
+      <Pressable style={styles.button}>
+        <Text style={{ textAlign: "center", fontWeight: "500" }}>Buy Now</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -127,5 +148,15 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     padding: 5,
     flexDirection: "row",
+  },
+  button: {
+    backgroundColor: "#ffc72c",
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+    alignItems: " center ",
+    justifyContent: "center",
+    borderRadius: 10,
+    padding: 10,
   },
 });
