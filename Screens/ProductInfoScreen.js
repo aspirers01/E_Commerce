@@ -10,10 +10,16 @@ import {
 } from "react-native";
 import SearchBar from "../Components/SearchBar";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Store/Redux/CartReducer";
+import { useState } from "react";
 function ProductInfoScreen(prams) {
   const { item } = prams.route.params;
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
+  const [cartstate, setCartstate] = useState(false);
+  const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
@@ -22,7 +28,7 @@ function ProductInfoScreen(prams) {
         <FontAwesome name="microphone" size={24} color="black" />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {item.carouselImages.map((image, index) => (
+        {item?.carouselImages?.map((image, index) => (
           <ImageBackground
             source={{ uri: image }}
             key={index}
@@ -30,8 +36,11 @@ function ProductInfoScreen(prams) {
               width: width - 20,
               height: height / 2,
               margin: 10,
-              resizeMode: "contain",
+
               marginTop: 20,
+            }}
+            imageStyle={{
+              resizeMode: "contain", // Ensures the image fits properly
             }}
           >
             <View
@@ -104,16 +113,31 @@ function ProductInfoScreen(prams) {
           color: "green",
           marginHorizontal: 10,
           fontWeight: "500",
-
           padding: 10,
         }}
       >
         In Stock
       </Text>
-      <Pressable style={styles.button}>
-        <Text style={{ textAlign: "center", fontWeight: "500" }}>
-          Add to Cart
-        </Text>
+      <Pressable
+        style={styles.button}
+        onPress={() => {
+          dispatch(addToCart(item));
+          setCartstate(true);
+          setTimeout(() => {
+            setCartstate(false);
+          }, 60000);
+          alert("Product added to cart");
+        }}
+      >
+        {cartstate ? (
+          <Text style={{ textAlign: "center", fontWeight: "500" }}>
+            added to cart
+          </Text>
+        ) : (
+          <Text style={{ textAlign: "center", fontWeight: "500" }}>
+            Add to Cart
+          </Text>
+        )}
       </Pressable>
       <Pressable style={styles.button}>
         <Text style={{ textAlign: "center", fontWeight: "500" }}>Buy Now</Text>

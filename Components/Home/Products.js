@@ -11,6 +11,8 @@ import axios from "axios";
 
 import DropDownPicker from "react-native-dropdown-picker";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../Store/Redux/CartReducer";
 function Products() {
   const [item, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
@@ -21,6 +23,8 @@ function Products() {
     { label: "electronics", value: "electronics" },
     { label: "women's clothing", value: "women's clothing" },
   ]);
+
+  const navigation = useNavigation();
   useEffect(() => {
     async function getProducts() {
       try {
@@ -107,7 +111,7 @@ function Products() {
                 >
                   Price: {item.price}$
                 </Text>
-                console.log
+
                 <Text
                   style={{
                     fontWeight: "bold",
@@ -120,8 +124,13 @@ function Products() {
               </View>
               <TouchableOpacity
                 onPress={() => {
-                  alert("Product added to cart");
-                  console.log(item);
+                  {
+                    item.carouselImages = [item.image];
+                  }
+
+                  navigation.navigate("ProductInfo", {
+                    item: item,
+                  });
                 }}
                 style={{ alignItems: "center", justifyContent: "center" }}
               >

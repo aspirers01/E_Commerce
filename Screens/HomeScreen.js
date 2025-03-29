@@ -16,8 +16,10 @@ import SliderImage from "../Components/Home/SliderImage";
 import Deals from "../Components/Home/Deals";
 import Offers from "../Components/Home/Offers";
 import Products from "../Components/Home/Products";
+import { useState } from "react";
 
 function HomeScreen(props) {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

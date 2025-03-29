@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet, Pressable, Image } from "react-native";
 const deals = [
@@ -67,10 +68,18 @@ const deals = [
 ];
 
 function Deals() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {deals.map((item, id) => (
-        <Pressable key={id}>
+        <Pressable
+          key={id}
+          onPress={() => {
+            navigation.navigate("ProductInfo", {
+              item: item,
+            });
+          }}
+        >
           <Image
             source={{ uri: item.image }}
             style={{ width: 180, height: 180, resizeMode: "contain" }}
