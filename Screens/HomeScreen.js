@@ -17,9 +17,11 @@ import Deals from "../Components/Home/Deals";
 import Offers from "../Components/Home/Offers";
 import Products from "../Components/Home/Products";
 import { useState } from "react";
+import Location from "../Components/Home/location/Location";
 
 function HomeScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -37,7 +39,11 @@ function HomeScreen(props) {
           }}
         >
           <Entypo name="location-pin" size={24} color="black" />
-          <Pressable style={{ flexDirection: "row", alignItems: "center" }}>
+          <Pressable
+            onPress={() => setModalVisible(!modalVisible)}
+            android_ripple={{ color: "#00000020" }}
+            style={{ flexDirection: "row", alignItems: "center" }}
+          >
             <Text style={{ fontWeight: "500", fontSize: 14 }}>
               Deliver to Pankaj - Gorakhpur 273008
             </Text>
@@ -63,6 +69,10 @@ function HomeScreen(props) {
 
         <Products />
       </ScrollView>
+      <Location
+        modal={modalVisible}
+        toggleModal={() => setModalVisible(!modalVisible)}
+      />
     </SafeAreaView>
   );
 }
