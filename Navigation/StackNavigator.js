@@ -10,6 +10,8 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Ionicons } from "@expo/vector-icons";
 import ProductInfoScreen from "../Screens/ProductInfoScreen";
+import AdressScreen from "../Screens/AdressScreen";
+import AddAddressScreen from "../Screens/AddAdressScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +79,8 @@ const StackNavigator = () => {
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="MainScreen" component={BottomTab} />
         <Stack.Screen name="ProductInfo" component={ProductInfoScreen} />
+        <Stack.Screen name="AdressScreen" component={AdressScreen} />
+        <Stack.Screen name="AddAdress" component={AddAddressScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

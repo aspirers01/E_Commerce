@@ -4,7 +4,10 @@ import { SlideAnimation } from "react-native-modals";
 import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { use } from "react";
+import { useNavigation } from "@react-navigation/native";
 function Location(props) {
+  const navigation = useNavigation();
   return (
     <BottomModal
       onBackdropPress={props.toggleModal}
@@ -38,7 +41,13 @@ function Location(props) {
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {/* already added loactions */}
-          <Pressable style={styles.location}>
+          <Pressable
+            style={styles.location}
+            onPress={() => {
+              navigation.navigate("AdressScreen");
+              props.toggleModal();
+            }}
+          >
             <Text style={styles.text}>add an address or a pickup point</Text>
           </Pressable>
         </ScrollView>
